@@ -2,6 +2,8 @@
 
 Static professional site for **Benoît Valla** — profile, experience, skills, and contact. Built for hosting on **GitHub Pages**.
 
+**GitHub repository:** [benvalla/benvalla.github.io](https://github.com/benvalla/benvalla.github.io) · **`git push`** and merge steps: [DEPLOY.md](DEPLOY.md).
+
 ## Run locally
 
 From this folder, serve over HTTP (so asset paths behave like production):
