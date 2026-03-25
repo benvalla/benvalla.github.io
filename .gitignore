@@ -1,0 +1,9 @@
+# Duplicate fix bundle (same CSS/JS lives at repo root)
+benoitvalla-github-pages-fix/
+
+# OS / editor
+Thumbs.db
+Desktop.ini
+*.swp
+.vscode/
+.idea/

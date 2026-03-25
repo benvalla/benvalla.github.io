@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" fill="none" aria-hidden="true">
+  <path
+    d="M0 80c40-20 80 20 120 0s80-25 120-5 80 15 120-5v45H0V80z"
+    fill="url(#wg)"
+    opacity="0.35"
+  />
+  <path
+    d="M0 95c50-15 100 15 150 0s100-20 150 0 100 10 100-15v40H0V95z"
+    fill="url(#wg2)"
+    opacity="0.25"
+  />
+  <circle cx="320" cy="28" r="4" fill="#c9a227" opacity="0.5"/>
+  <circle cx="350" cy="42" r="2.5" fill="#2d5a7b" opacity="0.45"/>
+  <circle cx="60" cy="36" r="3" fill="#2d5a7b" opacity="0.35"/>
+  <defs>
+    <linearGradient id="wg" x1="0" y1="0" x2="400" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a3a52"/>
+      <stop offset="1" stop-color="#c9a227"/>
+    </linearGradient>
+    <linearGradient id="wg2" x1="400" y1="0" x2="0" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2d5a7b"/>
+      <stop offset="1" stop-color="#1a3a52" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+</svg>
