@@ -1,56 +1,49 @@
-# benoitvalla.com
+# benvalla.github.io — missing CSS / JS / assets fix
 
-Static professional site for **Benoît Valla** — profile, experience, skills, and contact. Built for hosting on **GitHub Pages**.
+Your live HTML references **`css/styles.css`**, **`js/main.js`**, and files under **`assets/`**, but those paths were not present in the repository, so browsers returned **404** for the stylesheet (unstyled pages) and scripts.
 
-## Run locally
+This folder contains everything to add.
 
-From this folder, serve over HTTP (so asset paths behave like production):
+## Copy into your site repo
 
-```bash
-# Python 3
-python -m http.server 8080
-```
+1. Clone **`https://github.com/benvalla/benvalla.github.io`** (or open it locally).
+2. Merge these folders into the **repository root** (next to `index.html`):
+   - `css/` → `css/`
+   - `js/` → `js/`
+   - `assets/illustrations/` → `assets/illustrations/` (creates `assets` if needed)
 
-Then open `http://localhost:8080/`.
+3. **Logo & CV paths** expected by your HTML:
+   - `assets/logos/jll.png`, `tetris.png`, `accenture.png`, `bouygues.png`
+   - `assets/Benoit-Valla-CV.pdf`
 
-On Windows PowerShell you can also use:
+   From the repo root in **PowerShell**, run:
 
-```powershell
-npx --yes serve .
-```
+   ```powershell
+   .\scripts\sync-assets-from-root.ps1
+   ```
 
-## GitHub Pages
+   (If you copied this fix into the repo, the script is at `scripts/sync-assets-from-root.ps1`.)
 
-1. Push this repository to GitHub.
-2. In the repo **Settings → Pages**, set **Source** to deploy from the branch that contains these files (often `main`), folder **`/` (root)**.
-3. After the first deploy, open the contact form once: **FormSubmit** sends a one-time activation email to `benoitvalla90@gmail.com` — follow their link to enable submissions.
-4. The thank-you redirect uses JavaScript to build an absolute URL to `thank-you.html`, which works for both `username.github.io` and `username.github.io/repository-name` layouts.
+   The script copies the logo/CV files that already exist at the **root** of the repo (e.g. `JLL_logo.svg.png`) into `assets/` with the names your HTML uses.
 
-If you use a **custom domain**, no change is required for the redirect as long as the site is served from the same origin.
+4. Commit and push:
 
-## Project layout
+   ```bash
+   git add css js assets scripts
+   git status
+   git commit -m "Add site CSS, JS, illustrations, and synced asset paths"
+   git push
+   ```
 
-| Path | Purpose |
-|------|---------|
-| `index.html` | Home / hero |
-| `experience.html` | Employment timeline |
-| `skills.html` | Skills, languages, certifications |
-| `about.html` | Profile and education |
-| `contact.html` | Form (FormSubmit → Gmail) |
-| `thank-you.html` | Post-submit landing |
-| `credits.html` | Icon / illustration credits |
-| `assets/logos/` | Employer & school logos (PNG, your files) |
-| `assets/illustrations/` | Decorative SVGs |
-| `css/styles.css` | Styles |
-| `js/main.js` | Mobile nav, form redirect URL |
-| `assets/Benoit-Valla-CV.pdf` | Downloadable CV (copy of your PDF) |
-| `headshot_*.jpg` | Photos referenced by the pages |
+5. After GitHub Pages rebuilds (~1–2 minutes), hard-refresh the site (**Ctrl+F5**).
 
-## Updating content
+## What was added
 
-- Edit the HTML pages to reflect CV changes.
-- Replace `assets/Benoit-Valla-CV.pdf` when you update your CV (keep the same filename, or update every `href` that points to it).
+| Path | Role |
+|------|------|
+| `css/styles.css` | Layout, typography, hero, timeline, skills tags, contact form, responsive nav |
+| `js/main.js` | Mobile menu toggle; FormSubmit `_next` default for thank-you page |
+| `assets/illustrations/*.svg` | Decorative illustrations referenced from HTML |
+| `scripts/sync-assets-from-root.ps1` | Copies root logos/CV into `assets/` |
 
-## Privacy note
-
-Phone number, postal address, and similar details from the CV are **not** shown on the site. The contact form delivers to the configured email via FormSubmit; the service URL appears in the form markup (required for that provider).
+If any logo still 404s, check the filename at repo root and adjust the script or copy manually.
