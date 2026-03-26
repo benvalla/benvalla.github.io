@@ -45,13 +45,14 @@ If you use a **custom domain**, no change is required for the redirect as long a
 | `assets/illustrations/` | Decorative SVGs |
 | `css/styles.css` | Styles |
 | `js/main.js` | Mobile nav, form redirect URL |
-| `assets/Benoit-Valla-CV.pdf` | Downloadable CV (copy of your PDF) |
+| `assets/Benoit-Valla-CV.pdf` | Downloadable CV (public PDF: no email, phone, or postal address) |
 | `headshot_*.jpg` | Photos referenced by the pages |
+| `scripts/redact_cv_pdf.py` | Strips contact/address from `assets/Benoit-Valla-CV.pdf` (requires PyMuPDF) |
 
 ## Updating content
 
 - Edit the HTML pages to reflect CV changes.
-- Replace `assets/Benoit-Valla-CV.pdf` when you update your CV (keep the same filename, or update every `href` that points to it).
+- Replace `assets/Benoit-Valla-CV.pdf` when you update your CV (keep the same filename, or update every `href` that points to it). After replacing with a new export from Word/etc., run `python scripts/redact_cv_pdf.py` to strip contact lines again, or edit the script’s phrase list if your layout changes.
 
 ## Privacy note
 
